@@ -14,4 +14,6 @@ def test_llvm_double():
     ll = pickle.loads(ss)
     inp = [1, 2, 3]
     assert np.allclose(l(inp), ll(inp))
+    # check that the LLVMDoubleVisitor is properly dumped/loaded
+    assert np.allclose(l.unsafe_real(inp), ll.unsafe_real(inp))
 
